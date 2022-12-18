@@ -18,21 +18,21 @@ extension StoreView {
                 Button(action: {
                     viewModel.routeToDetails()
                 }, label: {
-                    Image(systemName: "bag")
+                    Style.Images.bag
                 })
                 Spacer()
 
                 Button(action: {
                     viewModel.routeToBasket()
                 }, label: {
-                    Image(systemName: "heart")
+                    Style.Images.heart
                 })
                 Spacer()
 
                 Button(action: {
                     viewModel.sheetAction()
                 }, label: {
-                    Image(systemName: "person")
+                    Style.Images.person
                 })
             })
             .font(Font.custom(Style.Fonts.bold, size: 15))
