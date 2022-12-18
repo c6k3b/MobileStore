@@ -5,6 +5,7 @@ import SwiftUI
 
 struct StoreView<ViewModel: StoreViewModelProtocol & StoreFlowStateProtocol>: View {
     @ObservedObject var viewModel: ViewModel
+    @State var search = ""
 
     var body: some View {
         StoreFlowCoordinator(state: viewModel, content: content)
@@ -20,10 +21,15 @@ struct StoreView<ViewModel: StoreViewModelProtocol & StoreFlowStateProtocol>: Vi
         .padding()
         .toolbar(content: {
             ToolbarItem(placement: .principal, content: {
-                HStack(content: {
-                    Image("Pin")
-                    Text("Zihuatanejo, Gro")
-                    Image(systemName: "chevron.down")
+                HStack(alignment: .center, content: {
+                    Style.Images.pin
+                    Text("Zihuatanejo, Gro ")
+                        .font(Font.custom(Style.Fonts.medium, size: 18))
+                    Style.Images.chevronDown
+                        .resizable()
+                        .frame(width: 10, height: 5)
+                        .padding(.top, 5)
+                        .padding(.leading, -5)
                 })
             })
             
@@ -31,7 +37,9 @@ struct StoreView<ViewModel: StoreViewModelProtocol & StoreFlowStateProtocol>: Vi
                 Button(action: {
                     viewModel.sheetAction()
                 }, label: {
-                    Image("Filter")
+                    Style.Images.filter
+                        .resizable()
+                        .frame(width: 11, height: 13)
                 })
             })
             

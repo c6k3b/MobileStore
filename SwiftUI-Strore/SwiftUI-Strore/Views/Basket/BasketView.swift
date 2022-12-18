@@ -15,6 +15,7 @@ struct BasketView<ViewModel: BasketViewModelProtocol & BasketFlowStateProtocol>:
         VStack(content: {
             HStack(content: {
                 Text("My Cart")
+                    .font(Font.custom(Style.Fonts.bold, size: 35))
                 Spacer()
             })
             Spacer()
@@ -26,16 +27,21 @@ struct BasketView<ViewModel: BasketViewModelProtocol & BasketFlowStateProtocol>:
                 Button(action: {
                     dismiss()
                 }, label: {
-                    Image("BackButton")
+                    Style.Images.navigationBack
+                        .resizable()
+                        .frame(width: 37, height: 37)
                 })
             })
 
             ToolbarItem(content: {
                 Text("Add Address")
+                    .font(Font.custom(Style.Fonts.medium, size: 18))
             })
 
             ToolbarItem(content: {
-                Image("AddressButton")
+                Style.Images.navigationAddress
+                    .resizable()
+                    .frame(width: 37, height: 37)
             })
         })
     }

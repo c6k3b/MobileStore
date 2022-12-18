@@ -12,7 +12,14 @@ extension StoreView {
                 Text(item.title ?? "n/a")
             }
         }, header: {
-            Text("Hot Sales")
+            HStack(content: {
+                Text("Hot Sales")
+                    .font(Font.custom(Style.Fonts.bold, size: 25))
+                Spacer()
+                Text("see more")
+                    .font(Font.custom(Style.Fonts.regular, size: 15))
+                    .foregroundColor(Style.Colors.orange)
+            })
         })
     }
 }

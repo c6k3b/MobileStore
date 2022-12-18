@@ -22,19 +22,24 @@ struct DetailsView<ViewModel: DetailsViewModelProtocol & DetailsFlowStateProtoco
                 Button(action: {
                     dismiss()
                 }, label: {
-                    Image("BackButton")
+                    Style.Images.navigationBack
+                        .resizable()
+                        .frame(width: 37, height: 37)
                 })
             })
 
             ToolbarItem(placement: .principal, content: {
                 Text("Product Details")
+                    .font(Font.custom(Style.Fonts.medium, size: 18))
             })
 
             ToolbarItem(placement: .navigationBarTrailing, content: {
                 Button(action: {
                     viewModel.routeToBasket()
                 }, label: {
-                    Image("BasketButton")
+                    Style.Images.basket
+                        .resizable()
+                        .frame(width: 37, height: 37)
                 })
             })
         })

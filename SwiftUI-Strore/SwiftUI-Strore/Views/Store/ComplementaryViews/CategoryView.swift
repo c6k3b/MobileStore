@@ -8,7 +8,14 @@ extension StoreView {
         Section(content: {
             Text("Phones")
         }, header: {
-            Text("Select Category")
+            HStack(content: {
+                Text("Select Category")
+                    .font(Font.custom(Style.Fonts.bold, size: 25))
+                Spacer()
+                Text("view all")
+                    .font(Font.custom(Style.Fonts.regular, size: 15))
+                    .foregroundColor(Style.Colors.orange)
+            })
         })
     }
 }

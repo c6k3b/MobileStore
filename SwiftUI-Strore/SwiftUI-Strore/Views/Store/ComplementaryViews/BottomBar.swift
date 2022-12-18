@@ -7,12 +7,12 @@ extension StoreView {
     @ViewBuilder var bottomBar: some View {
         ZStack(content: {
             RoundedRectangle(cornerRadius: 30, style: .continuous)
-                .fill(Color("DarkBlue"))
+                .fill(Style.Colors.darkBlue)
                 .frame(width: UIScreen.main.bounds.width + 4, height: 116)
                 .padding(.bottom, -44)
 
             HStack(content: {
-                Text("· Explorer")
+                Text("• Explorer")
                 Spacer()
 
                 Button(action: {
@@ -35,6 +35,7 @@ extension StoreView {
                     Image(systemName: "person")
                 })
             })
+            .font(Font.custom(Style.Fonts.bold, size: 15))
             .foregroundColor(.white)
             .padding(.horizontal, UIScreen.main.bounds.width / 8)
             .padding(.bottom, -8)

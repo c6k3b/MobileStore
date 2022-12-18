@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		003CD4D2294FA7FC001D54D4 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CD4D1294FA7FC001D54D4 /* Style.swift */; };
 		003D8578294D8B2C0086956F /* SwiftUI_StroreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003D8577294D8B2C0086956F /* SwiftUI_StroreApp.swift */; };
 		003D857A294D8B2C0086956F /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003D8579294D8B2C0086956F /* BasketView.swift */; };
 		003D857C294D8B2E0086956F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 003D857B294D8B2E0086956F /* Assets.xcassets */; };
@@ -40,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		003CD4D0294FA755001D54D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		003CD4D1294FA7FC001D54D4 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		003D8574294D8B2C0086956F /* SwiftUI-Strore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Strore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		003D8577294D8B2C0086956F /* SwiftUI_StroreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_StroreApp.swift; sourceTree = "<group>"; };
 		003D8579294D8B2C0086956F /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
@@ -117,6 +120,7 @@
 		003D8576294D8B2C0086956F /* SwiftUI-Strore */ = {
 			isa = PBXGroup;
 			children = (
+				003CD4D0294FA755001D54D4 /* Info.plist */,
 				003D8588294D8B890086956F /* Models */,
 				003D8595294D8F860086956F /* Resources */,
 				003D8587294D8B5F0086956F /* Services */,
@@ -234,6 +238,7 @@
 		00A72793294F5FF300BF7565 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				003CD4D1294FA7FC001D54D4 /* Style.swift */,
 				00A72794294F600C00BF7565 /* Extensions.swift */,
 			);
 			path = Utilities;
@@ -327,6 +332,7 @@
 				003D857A294D8B2C0086956F /* BasketView.swift in Sources */,
 				003D85A9294DC7E10086956F /* DetailsView.swift in Sources */,
 				00A72783294F24A200BF7565 /* BottomBar.swift in Sources */,
+				003CD4D2294FA7FC001D54D4 /* Style.swift in Sources */,
 				003D85AB294DD05F0086956F /* StoreView.swift in Sources */,
 				00A72797294F66EA00BF7565 /* BasketFlowCoordinator.swift in Sources */,
 				003D858C294D8BDF0086956F /* DetailsResponse.swift in Sources */,
@@ -477,6 +483,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SwiftUI-Strore/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -510,6 +517,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SwiftUI-Strore/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
