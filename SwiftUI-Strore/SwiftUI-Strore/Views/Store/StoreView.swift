@@ -5,7 +5,9 @@ import SwiftUI
 
 struct StoreView<ViewModel: StoreViewModelProtocol & StoreFlowStateProtocol>: View {
     @ObservedObject var viewModel: ViewModel
+    @State var isCategorySelected = false
     @State var search = ""
+    @State var categories = ["Phones", "Computers", "Health", "Books", "Phones", "Computers"]
 
     var body: some View {
         StoreFlowCoordinator(state: viewModel, content: content)
@@ -18,7 +20,7 @@ struct StoreView<ViewModel: StoreViewModelProtocol & StoreFlowStateProtocol>: Vi
             hotSalesView
             bestSellerView
         })
-        .padding()
+        .padding(.horizontal)
         .toolbar(content: {
             ToolbarItem(placement: .principal, content: {
                 HStack(alignment: .center, content: {

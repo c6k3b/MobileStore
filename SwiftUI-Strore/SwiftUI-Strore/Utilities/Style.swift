@@ -46,5 +46,11 @@ enum Style {
         static let camera = Image("Camera")
         static let ram = Image("Ram")
         static let ssd = Image("Ssd")
+
+        static let phones = Image("Phones")
+        static let computer = Image("Computer")
+        static let health = Image("Health")
+        static let books = Image("Books")
+
     }
 }
