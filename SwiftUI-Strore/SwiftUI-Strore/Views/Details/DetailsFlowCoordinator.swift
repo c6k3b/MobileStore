@@ -22,12 +22,8 @@ struct DetailsFlowCoordinator<State: DetailsFlowStateProtocol, Content: View>: V
     }
 
     var body: some View {
-        NavigationView(content: {
-            ZStack(content: {
-                content()
-                navigationLinks
-            })
-        })
+        content()
+        navigationLinks
     }
 
     @ViewBuilder private var navigationLinks: some View {

@@ -11,36 +11,33 @@ struct StoreView<ViewModel: StoreViewModelProtocol & StoreFlowStateProtocol>: Vi
     }
 
     @ViewBuilder private func content() -> some View {
-        NavigationView(content: {
-            VStack(content: {
-                categoryView
-                searchView
-                hotSalesView
-                bestSellerView
+        VStack(content: {
+            categoryView
+            searchView
+            hotSalesView
+            bestSellerView
+        })
+        .padding()
+        .toolbar(content: {
+            ToolbarItem(placement: .principal, content: {
+                HStack(content: {
+                    Image("Pin")
+                    Text("Zihuatanejo, Gro")
+                    Image(systemName: "chevron.down")
+                })
             })
-            .padding()
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .principal, content: {
-                    HStack(content: {
-                        Image("Pin")
-                        Text("Zihuatanejo, Gro")
-                        Image(systemName: "chevron.down")
-                    })
+            
+            ToolbarItem(placement: .navigationBarTrailing, content: {
+                Button(action: {
+                    viewModel.sheetAction()
+                }, label: {
+                    Image("Filter")
                 })
-
-                ToolbarItem(placement: .navigationBarTrailing, content: {
-                    Button(action: {
-                        viewModel.sheetAction()
-                    }, label: {
-                        Image("Filter")
-                    })
-                })
-
-                ToolbarItem(placement: .bottomBar, content: {
-                    bottomBar
-                })
-            }
+            })
+            
+            ToolbarItem(placement: .bottomBar, content: {
+                bottomBar
+            })
         })
     }
 }

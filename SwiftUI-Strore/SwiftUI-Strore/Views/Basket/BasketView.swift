@@ -5,18 +5,39 @@ import SwiftUI
 
 struct BasketView<ViewModel: BasketViewModelProtocol & BasketFlowStateProtocol>: View {
     @ObservedObject var viewModel: ViewModel
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         BasketFlowCoordinator(state: viewModel, content: content)
     }
 
     @ViewBuilder private func content() -> some View {
-        let total = viewModel.response.total ?? 0
-
-        VStack {
-            Text("\(total)")
-        }
+        VStack(content: {
+            HStack(content: {
+                Text("My Cart")
+                Spacer()
+            })
+            Spacer()
+        })
         .padding()
+        .navigationBarBackButtonHidden(true)
+        .toolbar(content: {
+            ToolbarItem(placement: .navigationBarLeading, content: {
+                Button(action: {
+                    dismiss()
+                }, label: {
+                    Image("BackButton")
+                })
+            })
+
+            ToolbarItem(content: {
+                Text("Add Address")
+            })
+
+            ToolbarItem(content: {
+                Image("AddressButton")
+            })
+        })
     }
 }
 

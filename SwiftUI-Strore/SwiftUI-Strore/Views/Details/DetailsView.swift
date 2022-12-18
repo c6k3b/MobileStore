@@ -5,18 +5,39 @@ import SwiftUI
 
 struct DetailsView<ViewModel: DetailsViewModelProtocol & DetailsFlowStateProtocol>: View {
     @ObservedObject var viewModel: ViewModel
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         DetailsFlowCoordinator(state: viewModel, content: content)
     }
 
     @ViewBuilder private func content() -> some View {
-        let price = viewModel.response.price ?? 0
-
-        VStack {
-            Text("\(price)")
-        }
+        VStack(content: {
+            Text("XXX")
+        })
         .padding()
+        .navigationBarBackButtonHidden(true)
+        .toolbar(content: {
+            ToolbarItem(placement: .navigationBarLeading, content: {
+                Button(action: {
+                    dismiss()
+                }, label: {
+                    Image("BackButton")
+                })
+            })
+
+            ToolbarItem(placement: .principal, content: {
+                Text("Product Details")
+            })
+
+            ToolbarItem(placement: .navigationBarTrailing, content: {
+                Button(action: {
+                    viewModel.routeToBasket()
+                }, label: {
+                    Image("BasketButton")
+                })
+            })
+        })
     }
 }
 
