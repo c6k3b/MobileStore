@@ -5,7 +5,7 @@ import SwiftUI
 
 struct StoreView<ViewModel: StoreViewModelProtocol & StoreFlowStateProtocol>: View {
     @ObservedObject var viewModel: ViewModel
-    @State var isCategorySelected = false
+    @State var categoryIndex = 0
     @State var search = ""
     @State var categories = ["Phones", "Computers", "Health", "Books", "Phones", "Computers"]
 
@@ -14,13 +14,16 @@ struct StoreView<ViewModel: StoreViewModelProtocol & StoreFlowStateProtocol>: Vi
     }
 
     @ViewBuilder private func content() -> some View {
-        VStack(content: {
-            categoryView
-            searchView
-            hotSalesView
-            bestSellerView
+        ScrollView(content: {
+            LazyVStack(content: {
+                categoryView
+                searchView
+                hotSalesView
+                bestSellerView
+            })
+            .padding(.horizontal)
         })
-        .padding(.horizontal)
+        .background(Style.Colors.background)
         .toolbar(content: {
             ToolbarItem(placement: .principal, content: {
                 HStack(alignment: .center, content: {

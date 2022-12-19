@@ -21,7 +21,7 @@ struct StoreResponse: Decodable {
 }
 
 extension StoreResponse {
-    struct HotSalesItem: Decodable, Identifiable {
+    struct HotSalesItem: Decodable, Identifiable, Hashable {
         let id: Int?
         let isNew: Bool?
         let title: String?
@@ -37,7 +37,7 @@ extension StoreResponse {
 }
 
 extension StoreResponse {
-    struct BestSellerItem: Decodable, Identifiable {
+    struct BestSellerItem: Decodable, Identifiable, Hashable {
         let id: Int?
         let isInFavorites: Bool?
         let discountPrice: Int?

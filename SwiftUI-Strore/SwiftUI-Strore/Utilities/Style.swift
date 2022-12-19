@@ -12,8 +12,12 @@ enum Style {
         static let iconGrey = Color("IconGrey")
         static let labelInactive = Color("LabelInactive")
         static let orange = Color("Orange")
+        static let shadowCategories = Color("CategoriesShadow")
+        static let shadowSearch = Color("SearchShadow")
+        static let shadowFavorites = Color("FavoritesShadow")
+        static let shadowBestSellerCard = Color("BestSellerShadow")
         static let yellow = Color("Yellow")
-        static let white = UIColor.white
+        static let white = Color.white
     }
 
     enum Fonts {
@@ -35,6 +39,7 @@ enum Style {
 
         static let star = Image(systemName: "star.fill")
         static let heart = Image(systemName: "heart")
+        static let heartFilled = Image(systemName: "heart.filled")
         static let checkmark = Image(systemName: "checkmark")
         static let person = Image(systemName: "person")
         static let bag = Image(systemName: "bag")

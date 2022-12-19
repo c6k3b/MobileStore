@@ -41,7 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		003CD4D0294FA755001D54D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		003CD4D0294FA755001D54D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		003CD4D1294FA7FC001D54D4 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		003D8574294D8B2C0086956F /* SwiftUI-Strore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Strore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		003D8577294D8B2C0086956F /* SwiftUI_StroreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_StroreApp.swift; sourceTree = "<group>"; };
@@ -120,7 +120,6 @@
 		003D8576294D8B2C0086956F /* SwiftUI-Strore */ = {
 			isa = PBXGroup;
 			children = (
-				003CD4D0294FA755001D54D4 /* Info.plist */,
 				003D8588294D8B890086956F /* Models */,
 				003D8595294D8F860086956F /* Resources */,
 				003D8587294D8B5F0086956F /* Services */,
@@ -185,6 +184,7 @@
 		003D85A7294D989C0086956F /* System */ = {
 			isa = PBXGroup;
 			children = (
+				003CD4D0294FA755001D54D4 /* Info.plist */,
 				003D8577294D8B2C0086956F /* SwiftUI_StroreApp.swift */,
 			);
 			path = System;
@@ -483,7 +483,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "SwiftUI-Strore/Info.plist";
+				INFOPLIST_FILE = "SwiftUI-Strore/System/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -517,7 +517,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "SwiftUI-Strore/Info.plist";
+				INFOPLIST_FILE = "SwiftUI-Strore/System/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
