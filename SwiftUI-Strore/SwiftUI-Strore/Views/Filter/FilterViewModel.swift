@@ -4,14 +4,8 @@
 import Foundation
 
 protocol FilterViewModelProtocol: ObservableObject {
-    var text: String { get }
 }
 
 final class FilterViewModel: FilterViewModelProtocol, FilterFlowStateProtocol {
     @Published var activeLink: FilterLink?
-    @Published var text: String
-
-    init(text: String) {
-        self.text = "\(text)"
-    }
 }

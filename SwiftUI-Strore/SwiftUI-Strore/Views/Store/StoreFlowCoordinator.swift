@@ -53,7 +53,8 @@ struct StoreFlowCoordinator<State: StoreFlowStateProtocol, Content: View>: View 
     }
 
     @ViewBuilder private func sheetContent(sheetItem: StoreLink) -> some View {
-        FilterView(viewModel: FilterViewModel(text: "FilterView"))
+        FilterView(viewModel: FilterViewModel())
+            .presentationDetents([.medium])
     }
 
     private func detailsDestination() -> some View {
