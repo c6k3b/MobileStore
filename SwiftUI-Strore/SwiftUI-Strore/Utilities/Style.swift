@@ -3,6 +3,7 @@ import SwiftUI
 enum Style {
     enum Colors {
         static let background = Color("Background")
+        static let backgroundCard = Color("CardBackground")
         static let buttonInactive = Color("ButtonInactive")
         static let carouselBackgroundInactive = Color("CarouselBackgroundInactive")
         static let checkmark = Color("Checkmark")
@@ -39,7 +40,7 @@ enum Style {
 
         static let star = Image(systemName: "star.fill")
         static let heart = Image(systemName: "heart")
-        static let heartFilled = Image(systemName: "heart.filled")
+        static let heartFill = Image(systemName: "heart.fill")
         static let checkmark = Image(systemName: "checkmark")
         static let person = Image(systemName: "person")
         static let bag = Image(systemName: "bag")

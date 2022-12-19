@@ -6,20 +6,18 @@ import SwiftUI
 extension StoreView {
     @ViewBuilder var bestSellerView: some View {
         let bestSellerItems = viewModel.response.bestSellerItems ?? []
-        var items: [GridItem] = Array(repeating: .init(.adaptive(minimum: 300)), count: 2)
+        let gridItems: [GridItem] = Array(repeating: .init(.flexible(), spacing: 24), count: 2)
 
         Section(content: {
-            VStack(content: {
+            LazyVGrid(columns: gridItems, content: {
                 ForEach(bestSellerItems, id: \.self) { item in
-                    LazyVGrid(columns: items, content: {
-                        bestSellerItem(
-                            image: item.picture ?? "",
-                            isInFavorites: item.isInFavorites ?? false,
-                            normalPrice: item.normalPrice ?? 0,
-                            discountPrice: item.discountPrice ?? 0,
-                            title: item.title ?? ""
-                        )
-                    })
+                    bestSellerItem(
+                        image: item.picture ?? "",
+                        isInFavorites: item.isInFavorites ?? false,
+                        normalPrice: item.normalPrice ?? 0,
+                        discountPrice: item.discountPrice ?? 0,
+                        title: item.title ?? ""
+                    )
                 }
             })
         }, header: {
@@ -35,62 +33,70 @@ extension StoreView {
                 })
             })
         })
-        .listStyle(.plain)
     }
 
     @ViewBuilder func bestSellerItem(image: String, isInFavorites: Bool, normalPrice: Int, discountPrice: Int, title: String) -> some View {
-        Button(action: {
-        }, label: {
-            ZStack(content: {
-                AsyncImage(url: URL(string: image)) {
-                    $0.resizable()
-                } placeholder: {
-                    ProgressView()
-                        .progressViewStyle(.circular)
-                }
-                .scaledToFill()
-                .frame(width: 180, height: 180)
-                .cornerRadius(10)
+        ZStack(content: {
+            Button(action: {
+                viewModel.routeToDetails()
+            }, label: {
+
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Style.Colors.white)
+                    .frame(width: 181, height: 227)
+                    .shadow(color: Style.Colors.shadowBestSellerCard, radius: 20)
+            })
+
+            VStack(alignment: .leading, content: {
+                ZStack(content: {
+                    AsyncImage(url: URL(string: image)) {
+                        $0.resizable()
+                    } placeholder: {
+                        ProgressView()
+                            .progressViewStyle(.circular)
+                    }
+                    .frame(width: 181, height: 177)
+                    .scaledToFill()
+
+                    Button(action: {
+                    }, label: {
+                        VStack(content: {
+                            HStack(content: {
+                                Spacer()
+                                ZStack(content: {
+                                    Circle()
+                                        .foregroundColor(Style.Colors.white)
+                                    isInFavorites ? Style.Images.heartFill : Style.Images.heart
+                                })
+                                .font(Font.custom(Style.Fonts.bold, size: 11))
+                                .foregroundColor(Style.Colors.orange)
+                                .frame(width: 25, height: 25)
+                            })
+                            Spacer()
+                        })
+                    })
+                    .padding(12)
+                    .shadow(color: Style.Colors.shadowFavorites, radius: 20)
+                })
 
                 HStack(content: {
-                    VStack(alignment: .leading, content: {
-                        ZStack(content: {
-                            Circle()
-                                .frame(width: 25, height: 25)
-                                .foregroundColor(Style.Colors.white)
-                                .shadow(color: Style.Colors.shadowFavorites, radius: 20)
-                            Style.Images.heartFilled
-                                .font(Font.custom(Style.Fonts.bold, size: 10))
-                                .foregroundColor(.primary)
-                        })
-                        Spacer()
+                    Text(discountPrice, format: .currency(code: "USD"))
+                        .font(Font.custom(Style.Fonts.bold, size: 16))
 
-                        Text("\(discountPrice)")
-                            .font(Font.custom(Style.Fonts.bold, size: 25))
-                            .foregroundColor(.primary)
-                            .colorInvert()
-
-                        Text("\(normalPrice)")
-                            .font(Font.custom(Style.Fonts.regular, size: 11))
-                            .foregroundColor(.primary)
-                            .colorInvert()
-                        Spacer()
-
-                        Button(action: {
-                            viewModel.routeToDetails()
-                        }, label: {
-                            Text(title)
-                                .font(Font.custom(Style.Fonts.bold, size: 11))
-                                .foregroundColor(.primary)
-                        })
-                        .frame(width: 96, height: 24)
-                        .background(Color.primary.colorInvert())
-                        .cornerRadius(5)
-                    })
-                    Spacer()
+                    Text(normalPrice, format: .currency(code: "USD"))
+                        .font(Font.custom(Style.Fonts.medium, size: 10))
+                        .foregroundColor(Style.Colors.filtersGray)
+                        .strikethrough()
                 })
-                .padding(26)
+                .padding(.horizontal)
+
+                Text(title)
+                    .font(Font.custom(Style.Fonts.regular, size: 10))
+                    .padding(.horizontal)
             })
+            .foregroundColor(.primary)
+            .padding(.bottom, 16)
+            .cornerRadius(10)
         })
     }
 }

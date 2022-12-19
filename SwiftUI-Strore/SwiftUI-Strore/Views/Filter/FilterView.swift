@@ -8,12 +8,14 @@ struct FilterView<ViewModel: FilterViewModelProtocol & FilterFlowStateProtocol>:
 
     var body: some View {
         FilterFlowCoordinator(state: viewModel, content: content)
+            .frame(height: 100)
     }
 
     @ViewBuilder private func content() -> some View {
-        ZStack {
+        VStack {
             Text(viewModel.text)
         }
+//        .frame(maxHeight: UIScreen.main.bounds.height / 3)
     }
 }
 

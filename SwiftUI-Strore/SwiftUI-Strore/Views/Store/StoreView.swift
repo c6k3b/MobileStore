@@ -14,8 +14,8 @@ struct StoreView<ViewModel: StoreViewModelProtocol & StoreFlowStateProtocol>: Vi
     }
 
     @ViewBuilder private func content() -> some View {
-        ScrollView(content: {
-            LazyVStack(content: {
+        ScrollView(showsIndicators: false,  content: {
+            LazyVStack(spacing: 24, content: {
                 categoryView
                 searchView
                 hotSalesView

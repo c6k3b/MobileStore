@@ -9,7 +9,7 @@ extension StoreView {
 
         Section(content: {
             ScrollView(.horizontal, showsIndicators: false, content: {
-                HStack(spacing: 24, content: {
+                HStack(spacing: 12, content: {
                     ForEach(hotSalesItems, id: \.self) {
                         hotSalesItem(
                             image: $0.picture ?? "",
@@ -36,62 +36,60 @@ extension StoreView {
     }
 
     @ViewBuilder func hotSalesItem(image: String, isNew: Bool, title: String, subtitle: String) -> some View {
-        Button(action: {
-        }, label: {
-            ZStack(content: {
-                AsyncImage(url: URL(string: image)) {
-                    $0.resizable()
-                } placeholder: {
-                    ProgressView()
-                        .progressViewStyle(.circular)
-                }
-                .scaledToFill()
-                .frame(width: UIScreen.main.bounds.width - 60, height: 180)
-                .cornerRadius(10)
+        ZStack(content: {
+            AsyncImage(url: URL(string: image)) {
+                $0.resizable()
+            } placeholder: {
+                ProgressView()
+                    .progressViewStyle(.circular)
+            }
+            .frame(width: UIScreen.main.bounds.width - 60, height: 180)
+            .scaledToFill()
+            .cornerRadius(10)
 
-                HStack(content: {
-                    VStack(alignment: .leading, content: {
-                        if isNew {
-                            ZStack(content: {
-                                Circle()
-                                    .frame(width: 27, height: 27)
-                                    .foregroundColor(Style.Colors.orange)
-                                Text("New")
-                                    .font(Font.custom(Style.Fonts.bold, size: 10))
-                                    .foregroundColor(.primary)
-                                    .colorInvert()
-                            })
-                        } else {
-                            Spacer()
-                            Spacer()
-                        }
-                        Spacer()
-                        Text(title)
-                            .font(Font.custom(Style.Fonts.bold, size: 25))
-                            .foregroundColor(.primary)
-                            .colorInvert()
-
-                        Text(subtitle)
-                            .font(Font.custom(Style.Fonts.regular, size: 11))
-                            .foregroundColor(.primary)
-                            .colorInvert()
-
-                        Spacer()
-                        Button(action: {
-                            viewModel.routeToDetails()
-                        }, label: {
-                            Text("Buy Now!")
-                                .font(Font.custom(Style.Fonts.bold, size: 11))
+            HStack(content: {
+                VStack(alignment: .leading, content: {
+                    if isNew {
+                        ZStack(content: {
+                            Circle()
+                                .frame(width: 27, height: 27)
+                                .foregroundColor(Style.Colors.orange)
+                            Text("New")
+                                .font(Font.custom(Style.Fonts.bold, size: 10))
                                 .foregroundColor(.primary)
+                                .colorInvert()
                         })
-                        .frame(width: 96, height: 24)
-                        .background(Color.primary.colorInvert())
-                        .cornerRadius(5)
-                    })
+                    } else {
+                        Spacer()
+                        Spacer()
+                    }
                     Spacer()
+
+                    Text(title)
+                        .font(Font.custom(Style.Fonts.bold, size: 25))
+                        .foregroundColor(.primary)
+                        .colorInvert()
+
+                    Text(subtitle)
+                        .font(Font.custom(Style.Fonts.regular, size: 11))
+                        .foregroundColor(.primary)
+                        .colorInvert()
+                    Spacer()
+
+                    Button(action: {
+                        viewModel.routeToDetails()
+                    }, label: {
+                        Text("Buy Now!")
+                            .font(Font.custom(Style.Fonts.bold, size: 11))
+                            .foregroundColor(.primary)
+                    })
+                    .frame(width: 96, height: 24)
+                    .background(Color.primary.colorInvert())
+                    .cornerRadius(5)
                 })
-                .padding(26)
+                Spacer()
             })
+            .padding(26)
         })
     }
 }

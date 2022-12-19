@@ -39,6 +39,7 @@ struct StoreFlowCoordinator<State: StoreFlowStateProtocol, Content: View>: View 
                     .sheet(item: sheetItem, content: sheetContent)
                 navigationLinks
             })
+            .navigationBarTitleDisplayMode(.inline)
         })
     }
 
