@@ -28,7 +28,7 @@ extension StoreView {
                             })
                             Text(categories[index])
                                 .font(Font.custom(Style.Fonts.medium, size: 12))
-                                .foregroundColor(index == categoryIndex ? Style.Colors.orange : .primary)
+                                .foregroundColor(index == categoryIndex ? Style.Colors.orange : Style.Colors.darkBlue)
                         })
                         .onTapGesture {
                             categoryIndex = index
@@ -50,5 +50,6 @@ extension StoreView {
                 })
             })
         })
+        .foregroundColor(Style.Colors.darkBlue)
     }
 }

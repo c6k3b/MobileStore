@@ -58,7 +58,6 @@ extension StoreView {
                                 .foregroundColor(Style.Colors.orange)
                             Text("New")
                                 .font(Font.custom(Style.Fonts.bold, size: 10))
-                                .foregroundColor(.primary)
                                 .colorInvert()
                         })
                     } else {
@@ -69,12 +68,10 @@ extension StoreView {
 
                     Text(title)
                         .font(Font.custom(Style.Fonts.bold, size: 25))
-                        .foregroundColor(.primary)
                         .colorInvert()
 
                     Text(subtitle)
                         .font(Font.custom(Style.Fonts.regular, size: 11))
-                        .foregroundColor(.primary)
                         .colorInvert()
                     Spacer()
 
@@ -83,7 +80,6 @@ extension StoreView {
                     }, label: {
                         Text("Buy Now!")
                             .font(Font.custom(Style.Fonts.bold, size: 11))
-                            .foregroundColor(.primary)
                     })
                     .frame(width: 96, height: 24)
                     .background(Color.primary.colorInvert())
@@ -92,6 +88,7 @@ extension StoreView {
                 Spacer()
             })
             .padding(26)
+            .foregroundColor(.primary)
         })
     }
 }

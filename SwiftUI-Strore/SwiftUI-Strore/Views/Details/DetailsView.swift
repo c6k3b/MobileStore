@@ -17,6 +17,7 @@ struct DetailsView<ViewModel: DetailsViewModelProtocol & DetailsFlowStateProtoco
         })
         .padding()
         .navigationBarBackButtonHidden(true)
+
         .toolbar(content: {
             ToolbarItem(placement: .navigationBarLeading, content: {
                 Button(action: {

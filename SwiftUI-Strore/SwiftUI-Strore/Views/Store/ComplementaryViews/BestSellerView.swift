@@ -97,9 +97,9 @@ extension StoreView {
                     .font(Font.custom(Style.Fonts.regular, size: 10))
                     .padding(.horizontal)
             })
-            .foregroundColor(.primary)
             .padding(.bottom, 16)
             .cornerRadius(10)
         })
+        .foregroundColor(Style.Colors.darkBlue)
     }
 }

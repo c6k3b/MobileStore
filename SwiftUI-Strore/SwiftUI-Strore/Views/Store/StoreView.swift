@@ -24,6 +24,8 @@ struct StoreView<ViewModel: StoreViewModelProtocol & StoreFlowStateProtocol>: Vi
             .padding(.horizontal)
         })
         .background(Style.Colors.background)
+        .foregroundColor(Style.Colors.darkBlue)
+
         .toolbar(content: {
             ToolbarItem(placement: .principal, content: {
                 HStack(alignment: .center, content: {
@@ -52,6 +54,7 @@ struct StoreView<ViewModel: StoreViewModelProtocol & StoreFlowStateProtocol>: Vi
                 bottomBar
             })
         })
+        .foregroundColor(Style.Colors.darkBlue)
     }
 }
 
