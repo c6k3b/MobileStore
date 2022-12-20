@@ -17,6 +17,7 @@ enum Style {
         static let shadowSearch = Color("SearchShadow")
         static let shadowFavorites = Color("FavoritesShadow")
         static let shadowBestSellerCard = Color("BestSellerShadow")
+        static let shadowDetailsCard = Color("DetailsCardShadow")
         static let yellow = Color("Yellow")
         static let white = Color.white
     }

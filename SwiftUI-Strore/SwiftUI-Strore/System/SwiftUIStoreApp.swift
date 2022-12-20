@@ -7,12 +7,18 @@ import SwiftUI
 struct SwiftUIStoreApp: App {
     var body: some Scene {
         WindowGroup {
-            StoreView(
-                viewModel: StoreViewModel(
+            DetailsView(
+                viewModel: DetailsViewModel(
                     service: WebService(),
-                    response: StoreResponse()
+                    response: DetailsResponse()
                 )
             )
+//            StoreView(
+//                viewModel: StoreViewModel(
+//                    service: WebService(),
+//                    response: StoreResponse()
+//                )
+//            )
         }
     }
 }

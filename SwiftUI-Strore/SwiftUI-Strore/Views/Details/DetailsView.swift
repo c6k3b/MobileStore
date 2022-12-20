@@ -7,15 +7,40 @@ struct DetailsView<ViewModel: DetailsViewModelProtocol & DetailsFlowStateProtoco
     @ObservedObject var viewModel: ViewModel
     @Environment(\.dismiss) var dismiss
 
+    @State var categories = ["Shop", "Details", "Features"]
+    @State var categoryIndex = 0
+
+    @State var details = ["cpu", "camera", "ram", "rom"]
+    @State var detailsIndex = 0
+
     var body: some View {
         DetailsFlowCoordinator(state: viewModel, content: content)
     }
 
     @ViewBuilder private func content() -> some View {
         VStack(content: {
-            Text("XXX")
+            HStack(content: {
+                Text("Images")
+            })
+            Spacer()
+
+            ZStack(content: {
+                RoundedRectangle(cornerRadius: 30)
+                    .fill(Style.Colors.yellow)
+                    .frame(width: UIScreen.main.bounds.width + 4, height: UIScreen.main.bounds.height / 2)
+                    .padding(.bottom, -128)
+                    .shadow(color: Style.Colors.shadowDetailsCard, radius: 20)
+                VStack(spacing: 24, content: {
+                    titleView
+                        .padding(.top, 86)
+                    featuresView
+                    colorAndCapacityView
+                    addToCartView
+                })
+                .padding(30)
+                .foregroundColor(Style.Colors.darkBlue)
+            })
         })
-        .padding()
         .navigationBarBackButtonHidden(true)
 
         .toolbar(content: {

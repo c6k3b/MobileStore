@@ -5,9 +5,9 @@ import SwiftUI
 
 struct StoreView<ViewModel: StoreViewModelProtocol & StoreFlowStateProtocol>: View {
     @ObservedObject var viewModel: ViewModel
-    @State var categoryIndex = 0
     @State var search = ""
     @State var categories = ["Phones", "Computers", "Health", "Books", "Phones", "Computers"]
+    @State var categoryIndex = 0
 
     var body: some View {
         StoreFlowCoordinator(state: viewModel, content: content)
@@ -51,7 +51,7 @@ struct StoreView<ViewModel: StoreViewModelProtocol & StoreFlowStateProtocol>: Vi
             })
 
             ToolbarItem(placement: .bottomBar, content: {
-                bottomBar
+                bottomBarView
             })
         })
         .foregroundColor(Style.Colors.darkBlue)

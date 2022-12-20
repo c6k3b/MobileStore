@@ -1,10 +1,10 @@
-//  TabBarView.swift
+//  BottomBarView.swift
 //  Created by aa on 12/18/22.
 
 import SwiftUI
 
 extension StoreView {
-    @ViewBuilder var bottomBar: some View {
+    @ViewBuilder var bottomBarView: some View {
         ZStack(content: {
             RoundedRectangle(cornerRadius: 30, style: .continuous)
                 .fill(Style.Colors.darkBlue)
