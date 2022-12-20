@@ -37,7 +37,9 @@ extension StoreView {
 
     @ViewBuilder func hotSalesItem(image: String, isNew: Bool, title: String, subtitle: String) -> some View {
         ZStack(content: {
-            AsyncImage(url: URL(string: image)) {
+            AsyncImage(
+                url: URL(string: image)
+            ) {
                 $0.resizable()
             } placeholder: {
                 ProgressView()

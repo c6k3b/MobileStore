@@ -14,10 +14,11 @@ struct StoreResponse: Decodable {
 
     init(
         hotSalesItems: [HotSalesItem]? = nil,
-        bestSellerItems: [BestSellerItem]? = nil) {
-            self.hotSalesItems = hotSalesItems
-            self.bestSellerItems = bestSellerItems
-        }
+        bestSellerItems: [BestSellerItem]? = nil
+    ) {
+        self.hotSalesItems = hotSalesItems
+        self.bestSellerItems = bestSellerItems
+    }
 }
 
 extension StoreResponse {
@@ -53,4 +54,3 @@ extension StoreResponse {
         }
     }
 }
-

@@ -8,7 +8,7 @@ extension StoreView {
         Section(content: {
             ScrollView(.horizontal, showsIndicators: false, content: {
                 HStack(spacing: 24, content: {
-                    ForEach(categories.indices) { index in
+                    ForEach(categories.indices, id: \.self) { index in
                         VStack(content: {
                             ZStack(content: {
                                 Circle()
@@ -20,7 +20,11 @@ extension StoreView {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 30, height: 30)
-                                    .foregroundColor(index == categoryIndex ? Style.Colors.white : Style.Colors.iconGrey)
+                                    .foregroundColor(
+                                        index == categoryIndex
+                                        ? Style.Colors.white
+                                        : Style.Colors.iconGrey
+                                    )
                             })
                             Text(categories[index])
                                 .font(Font.custom(Style.Fonts.medium, size: 12))

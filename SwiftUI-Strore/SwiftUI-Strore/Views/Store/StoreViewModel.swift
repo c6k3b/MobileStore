@@ -50,8 +50,8 @@ private extension StoreViewModel {
     func makeRequest(completion: @escaping (StoreResponse?) -> Void) {
         service.getData(StoreResponse.self, for: .store) {
             switch $0 {
-                case .success(let data): completion(data)
-                case .failure(let error): print(error)
+            case .success(let data): completion(data)
+            case .failure(let error): print(error)
             }
         }
     }

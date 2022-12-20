@@ -35,12 +35,13 @@ extension StoreView {
         })
     }
 
-    @ViewBuilder func bestSellerItem(image: String, isInFavorites: Bool, normalPrice: Int, discountPrice: Int, title: String) -> some View {
+    @ViewBuilder func bestSellerItem(
+        image: String, isInFavorites: Bool, normalPrice: Int, discountPrice: Int, title: String
+    ) -> some View {
         ZStack(content: {
             Button(action: {
                 viewModel.routeToDetails()
             }, label: {
-
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Style.Colors.white)
                     .frame(width: 181, height: 227)
@@ -49,7 +50,9 @@ extension StoreView {
 
             VStack(alignment: .leading, content: {
                 ZStack(content: {
-                    AsyncImage(url: URL(string: image)) {
+                    AsyncImage(
+                        url: URL(string: image)
+                    ) {
                         $0.resizable()
                     } placeholder: {
                         ProgressView()

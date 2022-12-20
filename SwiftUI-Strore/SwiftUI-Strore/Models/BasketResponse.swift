@@ -16,7 +16,7 @@ struct BasketResponse: Decodable {
         let title: String?
     }
 
-    init(id: String? = nil, basket: [BasketItem]? = nil, delivery: String? = nil,  total: Int? = nil) {
+    init(id: String? = nil, basket: [BasketItem]? = nil, delivery: String? = nil, total: Int? = nil) {
         self.basket = basket
         self.delivery = delivery
         self.id = id

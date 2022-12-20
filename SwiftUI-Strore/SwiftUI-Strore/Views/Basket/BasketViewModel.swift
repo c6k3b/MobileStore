@@ -11,7 +11,7 @@ final class BasketViewModel: BasketViewModelProtocol, BasketFlowStateProtocol {
     private let service: WebServiceProtocol
     @Published var activeLink: BasketLink?
     @Published private(set) var response: BasketResponse
-    
+
     init(service: WebServiceProtocol, response: BasketResponse) {
         self.service = service
         self.response = response
@@ -29,12 +29,12 @@ private extension BasketViewModel {
             }
         }
     }
-    
+
     func makeRequest(completion: @escaping (BasketResponse?) -> Void) {
         service.getData(BasketResponse.self, for: .basket) {
             switch $0 {
-                case .success(let data): completion(data)
-                case .failure(let error): print(error)
+            case .success(let data): completion(data)
+            case .failure(let error): print(error)
             }
         }
     }

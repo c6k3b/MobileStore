@@ -12,7 +12,7 @@ final class DetailsViewModel: DetailsViewModelProtocol, DetailsFlowStateProtocol
     private let service: WebServiceProtocol
     @Published var activeLink: DetailsLink?
     @Published private(set) var response: DetailsResponse
-    
+
     init(service: WebServiceProtocol, response: DetailsResponse) {
         self.service = service
         self.response = response
@@ -36,12 +36,12 @@ private extension DetailsViewModel {
             }
         }
     }
-    
+
     func makeRequest(completion: @escaping (DetailsResponse?) -> Void) {
         service.getData(DetailsResponse.self, for: .details) {
             switch $0 {
-                case .success(let data): completion(data)
-                case .failure(let error): print(error)
+            case .success(let data): completion(data)
+            case .failure(let error): print(error)
             }
         }
     }

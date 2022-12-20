@@ -5,7 +5,6 @@ import SwiftUI
 
 extension StoreView {
     @ViewBuilder var searchView: some View {
-
         Section(content: {
             ZStack(content: {
                 HStack(content: {

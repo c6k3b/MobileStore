@@ -57,6 +57,5 @@ enum Style {
         static let computer = Image("Computer")
         static let health = Image("Health")
         static let books = Image("Books")
-
     }
 }

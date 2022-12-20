@@ -14,7 +14,7 @@ struct StoreView<ViewModel: StoreViewModelProtocol & StoreFlowStateProtocol>: Vi
     }
 
     @ViewBuilder private func content() -> some View {
-        ScrollView(showsIndicators: false,  content: {
+        ScrollView(showsIndicators: false, content: {
             LazyVStack(spacing: 24, content: {
                 categoryView
                 searchView
@@ -37,7 +37,7 @@ struct StoreView<ViewModel: StoreViewModelProtocol & StoreFlowStateProtocol>: Vi
                         .padding(.leading, -5)
                 })
             })
-            
+
             ToolbarItem(placement: .navigationBarTrailing, content: {
                 Button(action: {
                     viewModel.sheetAction()
@@ -47,7 +47,7 @@ struct StoreView<ViewModel: StoreViewModelProtocol & StoreFlowStateProtocol>: Vi
                         .frame(width: 11, height: 13)
                 })
             })
-            
+
             ToolbarItem(placement: .bottomBar, content: {
                 bottomBar
             })

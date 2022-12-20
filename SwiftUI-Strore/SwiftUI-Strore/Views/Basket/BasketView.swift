@@ -6,7 +6,7 @@ import SwiftUI
 struct BasketView<ViewModel: BasketViewModelProtocol & BasketFlowStateProtocol>: View {
     @ObservedObject var viewModel: ViewModel
     @Environment(\.dismiss) var dismiss
-    
+
     var body: some View {
         BasketFlowCoordinator(state: viewModel, content: content)
     }

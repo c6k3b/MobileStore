@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		003CD4D2294FA7FC001D54D4 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CD4D1294FA7FC001D54D4 /* Style.swift */; };
-		003D8578294D8B2C0086956F /* SwiftUI_StroreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003D8577294D8B2C0086956F /* SwiftUI_StroreApp.swift */; };
+		003D8578294D8B2C0086956F /* SwiftUIStoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003D8577294D8B2C0086956F /* SwiftUIStoreApp.swift */; };
 		003D857A294D8B2C0086956F /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003D8579294D8B2C0086956F /* BasketView.swift */; };
 		003D857C294D8B2E0086956F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 003D857B294D8B2E0086956F /* Assets.xcassets */; };
 		003D858A294D8BD50086956F /* StoreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003D8589294D8BD50086956F /* StoreResponse.swift */; };
@@ -44,7 +44,7 @@
 		003CD4D0294FA755001D54D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		003CD4D1294FA7FC001D54D4 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		003D8574294D8B2C0086956F /* SwiftUI-Strore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Strore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		003D8577294D8B2C0086956F /* SwiftUI_StroreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_StroreApp.swift; sourceTree = "<group>"; };
+		003D8577294D8B2C0086956F /* SwiftUIStoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIStoreApp.swift; sourceTree = "<group>"; };
 		003D8579294D8B2C0086956F /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
 		003D857B294D8B2E0086956F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		003D8589294D8BD50086956F /* StoreResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreResponse.swift; sourceTree = "<group>"; };
@@ -121,11 +121,11 @@
 			isa = PBXGroup;
 			children = (
 				003D8588294D8B890086956F /* Models */,
-				003D8595294D8F860086956F /* Resources */,
-				003D8587294D8B5F0086956F /* Services */,
-				003D85A7294D989C0086956F /* System */,
-				00A72793294F5FF300BF7565 /* Utilities */,
 				003D8585294D8B4E0086956F /* Views */,
+				003D8587294D8B5F0086956F /* Services */,
+				00A72793294F5FF300BF7565 /* Utilities */,
+				003D8595294D8F860086956F /* Resources */,
+				003D85A7294D989C0086956F /* System */,
 			);
 			path = "SwiftUI-Strore";
 			sourceTree = "<group>";
@@ -133,10 +133,10 @@
 		003D8585294D8B4E0086956F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				00A7277D294EF36B00BF7565 /* Basket */,
-				00A7277C294EF36400BF7565 /* Details */,
-				00A72798294F6FD500BF7565 /* Filter */,
 				00A7277B294EF35900BF7565 /* Store */,
+				00A7277C294EF36400BF7565 /* Details */,
+				00A7277D294EF36B00BF7565 /* Basket */,
+				00A72798294F6FD500BF7565 /* Filter */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -152,9 +152,9 @@
 		003D8588294D8B890086956F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				003D858D294D8BE90086956F /* BasketResponse.swift */,
-				003D858B294D8BDF0086956F /* DetailsResponse.swift */,
 				003D8589294D8BD50086956F /* StoreResponse.swift */,
+				003D858B294D8BDF0086956F /* DetailsResponse.swift */,
+				003D858D294D8BE90086956F /* BasketResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -185,7 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				003CD4D0294FA755001D54D4 /* Info.plist */,
-				003D8577294D8B2C0086956F /* SwiftUI_StroreApp.swift */,
+				003D8577294D8B2C0086956F /* SwiftUIStoreApp.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -194,8 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				00A72780294F0C7900BF7565 /* StoreFlowCoordinator.swift */,
-				003D85AA294DD05F0086956F /* StoreView.swift */,
 				003D858F294D8D530086956F /* StoreViewModel.swift */,
+				003D85AA294DD05F0086956F /* StoreView.swift */,
 				00A72784294F251300BF7565 /* ComplementaryViews */,
 			);
 			path = Store;
@@ -205,8 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				00A72791294F5D4B00BF7565 /* DetailsFlowCoordinator.swift */,
-				003D85A8294DC7E10086956F /* DetailsView.swift */,
 				003D8591294D8D640086956F /* DetailsViewModel.swift */,
+				003D85A8294DC7E10086956F /* DetailsView.swift */,
 				003CD4CE294F9048001D54D4 /* ComplementaryViews */,
 			);
 			path = Details;
@@ -216,8 +216,8 @@
 			isa = PBXGroup;
 			children = (
 				00A72796294F66EA00BF7565 /* BasketFlowCoordinator.swift */,
-				003D8579294D8B2C0086956F /* BasketView.swift */,
 				003D8593294D8D790086956F /* BasketViewModel.swift */,
+				003D8579294D8B2C0086956F /* BasketView.swift */,
 				003CD4CF294F9057001D54D4 /* ComplementaryViews */,
 			);
 			path = Basket;
@@ -238,8 +238,8 @@
 		00A72793294F5FF300BF7565 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				003CD4D1294FA7FC001D54D4 /* Style.swift */,
 				00A72794294F600C00BF7565 /* Extensions.swift */,
+				003CD4D1294FA7FC001D54D4 /* Style.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -248,8 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				00A72799294F700E00BF7565 /* FilterFlowCoordinator.swift */,
-				00A7279D294F719C00BF7565 /* FilterView.swift */,
 				00A7279B294F70C700BF7565 /* FilterViewModel.swift */,
+				00A7279D294F719C00BF7565 /* FilterView.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -261,6 +261,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 003D8582294D8B2E0086956F /* Build configuration list for PBXNativeTarget "SwiftUI-Strore" */;
 			buildPhases = (
+				008D20D6295192CC00C39A01 /* Swiftlint */,
 				003D8570294D8B2C0086956F /* Sources */,
 				003D8571294D8B2C0086956F /* Frameworks */,
 				003D8572294D8B2C0086956F /* Resources */,
@@ -324,6 +325,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		008D20D6295192CC00C39A01 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		003D8570294D8B2C0086956F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -350,7 +373,7 @@
 				00A72792294F5D4B00BF7565 /* DetailsFlowCoordinator.swift in Sources */,
 				00A72795294F600C00BF7565 /* Extensions.swift in Sources */,
 				003D8594294D8D790086956F /* BasketViewModel.swift in Sources */,
-				003D8578294D8B2C0086956F /* SwiftUI_StroreApp.swift in Sources */,
+				003D8578294D8B2C0086956F /* SwiftUIStoreApp.swift in Sources */,
 				00A72781294F0C7900BF7565 /* StoreFlowCoordinator.swift in Sources */,
 				003D85A2294D93270086956F /* Webservice.swift in Sources */,
 			);

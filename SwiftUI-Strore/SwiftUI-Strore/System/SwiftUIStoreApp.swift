@@ -1,10 +1,10 @@
-//  SwiftUI_StroreApp.swift
+//  SwiftUIStoreApp.swift
 //  Created by aa on 12/17/22.
 
 import SwiftUI
 
 @main
-struct SwiftUI_StroreApp: App {
+struct SwiftUIStoreApp: App {
     var body: some Scene {
         WindowGroup {
             StoreView(

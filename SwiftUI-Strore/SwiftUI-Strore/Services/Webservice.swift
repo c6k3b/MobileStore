@@ -14,7 +14,11 @@ protocol WebServiceProtocol {
 }
 
 final class WebService: WebServiceProtocol {
-    func getData<T: Decodable>(_ type: T.Type, for endpoint: Endpoint, completion: @escaping (Result<T, Error>) -> Void) {
+    func getData<T: Decodable>(
+        _ type: T.Type,
+        for endpoint: Endpoint,
+        completion: @escaping (Result<T, Error>) -> Void
+    ) {
         performRequest(url: createURL(for: endpoint), expectation: T.self, completion: completion)
     }
 }
@@ -22,7 +26,11 @@ final class WebService: WebServiceProtocol {
 private extension WebService {
     enum APIError: Error { case noDataReturned, invalidURL }
 
-    func performRequest<T: Decodable>(url: URL?, expectation: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
+    func performRequest<T: Decodable>(
+        url: URL?,
+        expectation: T.Type,
+        completion: @escaping (Result<T, Error>) -> Void
+    ) {
         guard let url = url else {
             completion(.failure(APIError.invalidURL))
             return

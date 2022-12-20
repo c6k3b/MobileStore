@@ -6,7 +6,7 @@ import SwiftUI
 struct DetailsView<ViewModel: DetailsViewModelProtocol & DetailsFlowStateProtocol>: View {
     @ObservedObject var viewModel: ViewModel
     @Environment(\.dismiss) var dismiss
-    
+
     var body: some View {
         DetailsFlowCoordinator(state: viewModel, content: content)
     }

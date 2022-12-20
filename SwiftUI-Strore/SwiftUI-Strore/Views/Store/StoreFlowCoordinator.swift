@@ -15,8 +15,8 @@ enum StoreLink: Hashable, Identifiable {
 
     var sheetItem: StoreLink? {
         switch self {
-            case .sheetLink: return self
-            default: return nil
+        case .sheetLink: return self
+        default: return nil
         }
     }
 }
