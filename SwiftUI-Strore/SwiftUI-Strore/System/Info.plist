@@ -4,11 +4,9 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>MarkPro-ExtraLight.otf</string>
 		<string>MarkPro-Bold.ttf</string>
 		<string>MarkPro-Regular.ttf</string>
 		<string>MarkPro-Medium.ttf</string>
-		<string>MarkPro-Heavy.ttf</string>
 	</array>
 </dict>
 </plist>
