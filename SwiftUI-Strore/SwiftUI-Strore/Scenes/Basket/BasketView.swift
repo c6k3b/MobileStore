@@ -15,13 +15,43 @@ struct BasketView<ViewModel: BasketViewModelProtocol & BasketFlowStateProtocol>:
         VStack(content: {
             HStack(content: {
                 Text("My Cart")
+                    .foregroundColor(Styles.Colors.darkBlue)
                     .font(Font.custom(Styles.Fonts.bold, size: 35))
+                    .padding()
                 Spacer()
             })
             Spacer()
+
+            ZStack(alignment: .bottom, content: {
+                Rectangle()
+                    .cornerRadius(30, corners: [.topLeft, .topRight])
+                    .foregroundColor(Styles.Colors.darkBlue)
+                    .edgesIgnoringSafeArea([.bottom])
+                    .shadow(color: Styles.Colors.shadow, radius: 20)
+
+                VStack(spacing: 24, content: {
+                    cartView
+
+                    Rectangle()
+                        .fill(Styles.Colors.white).opacity(0.3)
+                        .frame(height: 1)
+
+                    summaryView
+
+                    Rectangle()
+                        .fill(Styles.Colors.white).opacity(0.3)
+                        .frame(height: 1)
+
+                    checkoutButtonView
+                })
+                .padding(EdgeInsets(top: 30, leading: 30, bottom: 10, trailing: 30))
+            })
+            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 1.5)
         })
-        .padding()
+        .background(Styles.Colors.background)
+        .foregroundColor(Styles.Colors.white)
         .navigationBarBackButtonHidden(true)
+
         .toolbar(content: {
             ToolbarItem(placement: .navigationBarLeading, content: {
                 Button(action: {

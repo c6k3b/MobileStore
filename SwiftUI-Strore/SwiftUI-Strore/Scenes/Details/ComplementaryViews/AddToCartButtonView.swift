@@ -22,6 +22,5 @@ extension DetailsView {
             .background(Styles.Colors.orange)
             .cornerRadius(10)
         })
-        .padding(EdgeInsets(top: 0, leading: 30, bottom: 40, trailing: 30))
     }
 }

@@ -40,6 +40,7 @@ struct DetailsView<ViewModel: DetailsViewModelProtocol & DetailsFlowStateProtoco
                 .padding(EdgeInsets(top: 10, leading: 30, bottom: 72, trailing: 30))
 
                 addToCartButtonView
+                    .padding(EdgeInsets(top: 0, leading: 30, bottom: 40, trailing: 30))
             })
             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
         })
