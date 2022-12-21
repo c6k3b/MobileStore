@@ -59,7 +59,7 @@ extension StoreView {
                             .progressViewStyle(.circular)
                     }
                     .frame(width: 181, height: 177)
-                    .scaledToFill()
+                    .scaledToFit()
 
                     Button(action: {
                     }, label: {

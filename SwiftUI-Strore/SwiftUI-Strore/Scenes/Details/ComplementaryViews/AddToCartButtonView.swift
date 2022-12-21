@@ -15,13 +15,13 @@ extension DetailsView {
                 Spacer()
                 Text(price.formatted(.currency(code: "USD")))
             })
-            .padding(.horizontal, 45)
+            .padding(.horizontal, 30)
             .font(Font.custom(Styles.Fonts.bold, size: 20))
             .frame(maxWidth: .infinity, minHeight: 54)
             .foregroundColor(Styles.Colors.white)
             .background(Styles.Colors.orange)
             .cornerRadius(10)
         })
-        .padding(EdgeInsets(top: 0, leading: 30, bottom: 10, trailing: 30))
+        .padding(EdgeInsets(top: 0, leading: 30, bottom: 40, trailing: 30))
     }
 }

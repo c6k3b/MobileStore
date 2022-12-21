@@ -12,7 +12,7 @@ extension StoreView {
                 HStack(spacing: 12, content: {
                     ForEach(hotSalesItems, id: \.self) {
                         hotSalesItem(
-                            image: $0.picture ?? "",
+                            imageURL: $0.picture ?? "",
                             isNew: $0.isNew ?? false,
                             title: $0.title ?? "",
                             subtitle: $0.subtitle ?? ""
@@ -35,10 +35,10 @@ extension StoreView {
         })
     }
 
-    @ViewBuilder func hotSalesItem(image: String, isNew: Bool, title: String, subtitle: String) -> some View {
+    @ViewBuilder func hotSalesItem(imageURL: String, isNew: Bool, title: String, subtitle: String) -> some View {
         ZStack(content: {
             AsyncImage(
-                url: URL(string: image)
+                url: URL(string: imageURL)
             ) {
                 $0.resizable()
             } placeholder: {

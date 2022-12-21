@@ -21,11 +21,7 @@ struct DetailsView<ViewModel: DetailsViewModelProtocol & DetailsFlowStateProtoco
 
     @ViewBuilder private func content() -> some View {
         VStack(content: {
-            HStack(content: {
-                Text("Images")
-            })
-            .background(Styles.Colors.background)
-            Spacer()
+            imagesView
 
             ZStack(alignment: .bottom, content: {
                 Rectangle()
@@ -47,6 +43,7 @@ struct DetailsView<ViewModel: DetailsViewModelProtocol & DetailsFlowStateProtoco
             })
             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
         })
+        .background(Styles.Colors.background)
         .foregroundColor(Styles.Colors.darkBlue)
         .navigationBarBackButtonHidden(true)
 
