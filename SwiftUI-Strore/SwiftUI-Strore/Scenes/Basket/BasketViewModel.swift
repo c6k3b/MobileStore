@@ -31,7 +31,7 @@ private extension BasketViewModel {
     }
 
     func makeRequest(completion: @escaping (BasketResponse?) -> Void) {
-        service.getData(BasketResponse.self, for: .basket) {
+        service.request(BasketResponse.self, for: .basket) {
             switch $0 {
             case .success(let data): completion(data)
             case .failure(let error): print(error)

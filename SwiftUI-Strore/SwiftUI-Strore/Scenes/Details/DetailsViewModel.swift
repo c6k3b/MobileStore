@@ -38,7 +38,7 @@ private extension DetailsViewModel {
     }
 
     func makeRequest(completion: @escaping (DetailsResponse?) -> Void) {
-        service.getData(DetailsResponse.self, for: .details) {
+        service.request(DetailsResponse.self, for: .details) {
             switch $0 {
             case .success(let data): completion(data)
             case .failure(let error): print(error)

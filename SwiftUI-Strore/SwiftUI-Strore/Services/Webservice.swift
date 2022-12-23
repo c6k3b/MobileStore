@@ -10,28 +10,28 @@ enum Endpoint: String {
 }
 
 protocol WebServiceProtocol {
-    func getData<T: Decodable>(_ type: T.Type, for endpoint: Endpoint, completion: @escaping (Result<T, Error>) -> Void)
+    func request<T: Decodable>(_ type: T.Type, for endpoint: Endpoint, completion: @escaping (Result<T, Error>) -> Void)
 }
 
 final class WebService: WebServiceProtocol {
-    func getData<T: Decodable>(
+    func request<T: Decodable>(
         _ type: T.Type,
         for endpoint: Endpoint,
         completion: @escaping (Result<T, Error>) -> Void
     ) {
-        performRequest(url: createURL(for: endpoint), expectation: T.self, completion: completion)
+        execute(for: endpoint, expectation: T.self, completion: completion)
     }
 }
 
 private extension WebService {
     enum APIError: Error { case noDataReturned, invalidURL }
 
-    func performRequest<T: Decodable>(
-        url: URL?,
+    func execute<T: Decodable>(
+        for endpoint: Endpoint,
         expectation: T.Type,
         completion: @escaping (Result<T, Error>) -> Void
     ) {
-        guard let url = url else {
+        guard let url = createURL(for: endpoint) else {
             completion(.failure(APIError.invalidURL))
             return
         }
