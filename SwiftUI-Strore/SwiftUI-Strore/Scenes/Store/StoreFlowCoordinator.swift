@@ -44,7 +44,7 @@ struct StoreFlowCoordinator<State: StoreFlowStateProtocol, Content: View>: View 
         return DetailsView(
             viewModel: DetailsViewModel(
                 service: WebService(),
-                response: DetailsResponse()
+                response: DetailsViewModel.Response()
             )
         )
     }
@@ -53,7 +53,7 @@ struct StoreFlowCoordinator<State: StoreFlowStateProtocol, Content: View>: View 
         return BasketView(
             viewModel: BasketViewModel(
                 service: WebService(),
-                response: BasketResponse()
+                response: BasketViewModel.Response()
             )
         )
     }

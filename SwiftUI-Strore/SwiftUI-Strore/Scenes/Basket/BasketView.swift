@@ -82,7 +82,7 @@ struct ContentView_Previews: PreviewProvider {
         BasketView(
             viewModel: BasketViewModel(
                 service: WebService(),
-                response: BasketResponse()
+                response: BasketViewModel.Response()
             )
         )
     }

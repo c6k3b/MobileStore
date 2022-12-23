@@ -10,9 +10,6 @@
 		003CD4D2294FA7FC001D54D4 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CD4D1294FA7FC001D54D4 /* Styles.swift */; };
 		003D8578294D8B2C0086956F /* SwiftUIStoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003D8577294D8B2C0086956F /* SwiftUIStoreApp.swift */; };
 		003D857A294D8B2C0086956F /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003D8579294D8B2C0086956F /* BasketView.swift */; };
-		003D858A294D8BD50086956F /* StoreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003D8589294D8BD50086956F /* StoreResponse.swift */; };
-		003D858C294D8BDF0086956F /* DetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003D858B294D8BDF0086956F /* DetailsResponse.swift */; };
-		003D858E294D8BE90086956F /* BasketResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003D858D294D8BE90086956F /* BasketResponse.swift */; };
 		003D8590294D8D530086956F /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003D858F294D8D530086956F /* StoreViewModel.swift */; };
 		003D8592294D8D640086956F /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003D8591294D8D640086956F /* DetailsViewModel.swift */; };
 		003D8594294D8D790086956F /* BasketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003D8593294D8D790086956F /* BasketViewModel.swift */; };
@@ -50,9 +47,6 @@
 		003D8574294D8B2C0086956F /* SwiftUI-Strore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Strore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		003D8577294D8B2C0086956F /* SwiftUIStoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIStoreApp.swift; sourceTree = "<group>"; };
 		003D8579294D8B2C0086956F /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
-		003D8589294D8BD50086956F /* StoreResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreResponse.swift; sourceTree = "<group>"; };
-		003D858B294D8BDF0086956F /* DetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsResponse.swift; sourceTree = "<group>"; };
-		003D858D294D8BE90086956F /* BasketResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketResponse.swift; sourceTree = "<group>"; };
 		003D858F294D8D530086956F /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
 		003D8591294D8D640086956F /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		003D8593294D8D790086956F /* BasketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewModel.swift; sourceTree = "<group>"; };
@@ -136,12 +130,11 @@
 		003D8576294D8B2C0086956F /* SwiftUI-Strore */ = {
 			isa = PBXGroup;
 			children = (
-				003D8588294D8B890086956F /* Models */,
+				003D85A7294D989C0086956F /* Main */,
+				003D8595294D8F860086956F /* Resources */,
 				003D8585294D8B4E0086956F /* Scenes */,
 				003D8587294D8B5F0086956F /* Services */,
 				00A72793294F5FF300BF7565 /* Utilities */,
-				003D8595294D8F860086956F /* Resources */,
-				003D85A7294D989C0086956F /* System */,
 			);
 			path = "SwiftUI-Strore";
 			sourceTree = "<group>";
@@ -164,16 +157,6 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		003D8588294D8B890086956F /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				003D8589294D8BD50086956F /* StoreResponse.swift */,
-				003D858B294D8BDF0086956F /* DetailsResponse.swift */,
-				003D858D294D8BE90086956F /* BasketResponse.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		003D8595294D8F860086956F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,13 +177,13 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		003D85A7294D989C0086956F /* System */ = {
+		003D85A7294D989C0086956F /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				003CD4D0294FA755001D54D4 /* Info.plist */,
 				003D8577294D8B2C0086956F /* SwiftUIStoreApp.swift */,
 			);
-			path = System;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		00A7277B294EF35900BF7565 /* Store */ = {
@@ -365,11 +348,8 @@
 				00A72797294F66EA00BF7565 /* BasketFlowCoordinator.swift in Sources */,
 				008D20DA2951DA8900C39A01 /* TitleView.swift in Sources */,
 				008AEE7E29537AB900EC7622 /* CartView.swift in Sources */,
-				003D858C294D8BDF0086956F /* DetailsResponse.swift in Sources */,
 				00A7278E294F2B5800BF7565 /* BestSellerView.swift in Sources */,
-				003D858A294D8BD50086956F /* StoreResponse.swift in Sources */,
 				008D20E02951DB6900C39A01 /* AddToCartButtonView.swift in Sources */,
-				003D858E294D8BE90086956F /* BasketResponse.swift in Sources */,
 				003D8592294D8D640086956F /* DetailsViewModel.swift in Sources */,
 				008AEE8029537AC800EC7622 /* SummaryView.swift in Sources */,
 				00A72788294F28CB00BF7565 /* CategoryView.swift in Sources */,
@@ -514,7 +494,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "SwiftUI-Strore/System/Info.plist";
+				INFOPLIST_FILE = "SwiftUI-Strore/Main/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -548,7 +528,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "SwiftUI-Strore/System/Info.plist";
+				INFOPLIST_FILE = "SwiftUI-Strore/Main/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

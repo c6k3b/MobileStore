@@ -82,7 +82,7 @@ struct DetailsView_Previews: PreviewProvider {
         DetailsView(
             viewModel: DetailsViewModel(
                 service: WebService(),
-                response: DetailsResponse()
+                response: DetailsViewModel.Response()
             )
         )
     }

@@ -36,7 +36,7 @@ struct DetailsFlowCoordinator<State: DetailsFlowStateProtocol, Content: View>: V
         return BasketView(
             viewModel: BasketViewModel(
                 service: WebService(),
-                response: BasketResponse()
+                response: BasketViewModel.Response()
             )
         )
     }

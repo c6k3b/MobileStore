@@ -86,7 +86,7 @@ struct StoreView_Previews: PreviewProvider {
         StoreView(
             viewModel: StoreViewModel(
                 service: WebService(),
-                response: StoreResponse()
+                response: StoreViewModel.Response()
             )
         )
     }
