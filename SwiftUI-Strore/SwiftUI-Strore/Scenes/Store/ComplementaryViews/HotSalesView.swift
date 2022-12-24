@@ -7,9 +7,9 @@ extension StoreView {
     @ViewBuilder var hotSalesView: some View {
         let hotSalesItems = viewModel.response.hotSalesItems ?? []
 
-        Section(content: {
-            ScrollView(.horizontal, showsIndicators: false, content: {
-                HStack(spacing: 12, content: {
+        Section {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 12) {
                     ForEach(hotSalesItems, id: \.self) {
                         hotSalesItem(
                             imageURL: $0.picture ?? "",
@@ -18,77 +18,70 @@ extension StoreView {
                             subtitle: $0.subtitle ?? ""
                         )
                     }
-                })
-            })
-        }, header: {
-            HStack(content: {
-                Text("Hot Sales")
-                    .font(Font.custom(Styles.Fonts.bold, size: 25))
-                Spacer()
-                Button(action: {
-                }, label: {
-                    Text("see more")
-                        .font(Font.custom(Styles.Fonts.regular, size: 15))
-                        .foregroundColor(Styles.Colors.orange)
-                })
-            })
-        })
+                }
+            }
+        } header: {
+            SectionHeaderView(label: "Hot Sales", sublabel: "see more")
+        }
     }
 
     @ViewBuilder func hotSalesItem(imageURL: String, isNew: Bool, title: String, subtitle: String) -> some View {
-        ZStack(content: {
+        ZStack {
             AsyncImage(
                 url: URL(string: imageURL)
-            ) {
-                $0.resizable()
-            } placeholder: {
-                ProgressView()
-                    .progressViewStyle(.circular)
+            ) { $0.resizable() } placeholder: {
+                ProgressView().progressViewStyle(.circular)
             }
             .frame(width: UIScreen.main.bounds.width - 60, height: 180)
             .scaledToFill()
             .cornerRadius(10)
 
-            HStack(content: {
-                VStack(alignment: .leading, content: {
+            HStack {
+                VStack(alignment: .leading) {
                     if isNew {
-                        ZStack(content: {
-                            Circle()
-                                .frame(width: 27, height: 27)
-                                .foregroundColor(Styles.Colors.orange)
-                            Text("New")
-                                .font(Font.custom(Styles.Fonts.bold, size: 10))
-                                .colorInvert()
-                        })
+                       isNewLabel
                     } else {
                         Spacer()
                         Spacer()
                     }
                     Spacer()
 
-                    Text(title)
-                        .font(Font.custom(Styles.Fonts.bold, size: 25))
-                        .colorInvert()
-
-                    Text(subtitle)
-                        .font(Font.custom(Styles.Fonts.regular, size: 11))
-                        .colorInvert()
+                    description(title: title, subtitle: subtitle).colorInvert()
                     Spacer()
 
-                    Button(action: {
+                    Button {
                         viewModel.routeToDetails()
-                    }, label: {
+                    } label: {
                         Text("Buy Now!")
                             .font(Font.custom(Styles.Fonts.bold, size: 11))
-                    })
+                    }
                     .frame(width: 96, height: 24)
                     .background(Color.primary.colorInvert())
                     .cornerRadius(5)
-                })
+                }
                 Spacer()
-            })
+            }
             .padding(26)
             .foregroundColor(.primary)
-        })
+        }
+    }
+
+    @ViewBuilder var isNewLabel: some View {
+        ZStack {
+            Circle()
+                .frame(width: 27, height: 27)
+                .foregroundColor(Styles.Colors.orange)
+            Text("New")
+                .font(Font.custom(Styles.Fonts.bold, size: 10))
+                .colorInvert()
+        }
+    }
+
+    @ViewBuilder func description(title: String, subtitle: String) -> some View {
+        Text(title)
+            .font(Font.custom(Styles.Fonts.bold, size: 25))
+
+        Text(subtitle)
+            .font(Font.custom(Styles.Fonts.regular, size: 11))
     }
 }

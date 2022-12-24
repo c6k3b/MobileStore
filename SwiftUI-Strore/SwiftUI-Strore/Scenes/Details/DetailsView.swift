@@ -20,60 +20,55 @@ struct DetailsView<ViewModel: DetailsViewModelProtocol & DetailsFlowStateProtoco
     }
 
     @ViewBuilder private func content() -> some View {
-        VStack(content: {
+        VStack {
             imagesView
 
-            ZStack(alignment: .bottom, content: {
-                Rectangle()
-                    .cornerRadius(30, corners: [.topLeft, .topRight])
-                    .foregroundColor(Styles.Colors.white)
-                    .edgesIgnoringSafeArea([.bottom])
-                    .shadow(color: Styles.Colors.shadow, radius: 20)
+            ZStack(alignment: .bottom) {
+                RectangleView(color: Styles.Colors.white)
 
-                ScrollView(.vertical, showsIndicators: false, content: {
-                    VStack(spacing: 24, content: {
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(spacing: 24) {
                         titleView
                         featuresView
                         colorAndCapacityView
-                    })
-                })
+                    }
+                }
                 .padding(EdgeInsets(top: 10, leading: 30, bottom: 72, trailing: 30))
 
-                addToCartButtonView
-                    .padding(EdgeInsets(top: 0, leading: 30, bottom: 40, trailing: 30))
-            })
+                ButtonView(
+                    text: "Add to Cart  \((viewModel.response.price ?? 0).formatted(.currency(code: "USD")))",
+                    action: { viewModel.routeToBasket() }
+                )
+                .padding(EdgeInsets(top: 0, leading: 30, bottom: 40, trailing: 30))
+            }
             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
-        })
+        }
         .background(Styles.Colors.background)
         .foregroundColor(Styles.Colors.darkBlue)
         .navigationBarBackButtonHidden(true)
 
-        .toolbar(content: {
-            ToolbarItem(placement: .navigationBarLeading, content: {
-                Button(action: {
-                    dismiss()
-                }, label: {
-                    Styles.Images.navigationBack
-                        .resizable()
-                        .frame(width: 37, height: 37)
-                })
-            })
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                RectangleButtonView(
+                    image: Styles.Images.chevronLeft,
+                    color: Styles.Colors.darkBlue,
+                    action: { dismiss() }
+                )
+            }
 
-            ToolbarItem(placement: .principal, content: {
+            ToolbarItem(placement: .principal) {
                 Text("Product Details")
                     .font(Font.custom(Styles.Fonts.medium, size: 18))
-            })
+            }
 
-            ToolbarItem(placement: .navigationBarTrailing, content: {
-                Button(action: {
-                    viewModel.routeToBasket()
-                }, label: {
-                    Styles.Images.basket
-                        .resizable()
-                        .frame(width: 37, height: 37)
-                })
-            })
-        })
+            ToolbarItem(placement: .navigationBarTrailing) {
+                RectangleButtonView(
+                    image: Styles.Images.bag,
+                    color: Styles.Colors.orange,
+                    action: { viewModel.routeToBasket() }
+                )
+            }
+        }
     }
 }
 

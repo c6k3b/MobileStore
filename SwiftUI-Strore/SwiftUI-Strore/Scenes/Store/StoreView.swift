@@ -18,44 +18,41 @@ struct StoreView<ViewModel: StoreViewModelProtocol & StoreFlowStateProtocol>: Vi
     }
 
     @ViewBuilder private func content() -> some View {
-        ZStack(alignment: .bottom, content: {
-            ScrollView(showsIndicators: false, content: {
-                LazyVStack(spacing: 24, content: {
+        ZStack(alignment: .bottom) {
+            ScrollView(showsIndicators: false) {
+                LazyVStack(spacing: 24) {
                     categoryView
                     searchView
                     hotSalesView
                     bestSellerView
-                })
+                }
                 .padding(.horizontal)
-            })
+            }
             .background(Styles.Colors.background)
             .foregroundColor(Styles.Colors.darkBlue)
 
             if isFilterPresented {
-                ZStack(content: {
-                    Rectangle()
-                        .cornerRadius(30, corners: [.topLeft, .topRight])
-                        .foregroundColor(Styles.Colors.white)
-                        .edgesIgnoringSafeArea([.bottom])
-                        .shadow(color: Styles.Colors.shadow, radius: 20)
+                ZStack {
+                    RectangleView(color: Styles.Colors.white)
 
-                    VStack(content: {
+                    VStack {
                         filterToolbar
-                        ScrollView(.vertical, showsIndicators: false, content: {
+                        ScrollView(.vertical, showsIndicators: false) {
                             filterView
-                        })
-                    })
+                        }
+                    }
                     .padding(EdgeInsets(top: 10, leading: 30, bottom: 1, trailing: 30))
-                })
+                }
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 3)
             } else {
                 bottomBarView
+                    .frame(height: 72)
             }
-        })
+        }
 
-        .toolbar(content: {
-            ToolbarItem(placement: .principal, content: {
-                HStack(alignment: .center, content: {
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                HStack(alignment: .center) {
                     Styles.Images.pin
                     Text("Zihuatanejo, Gro ")
                         .font(Font.custom(Styles.Fonts.medium, size: 18))
@@ -64,19 +61,17 @@ struct StoreView<ViewModel: StoreViewModelProtocol & StoreFlowStateProtocol>: Vi
                         .frame(width: 10, height: 5)
                         .padding(.top, 5)
                         .padding(.leading, -5)
-                })
-            })
+                }
+            }
 
-            ToolbarItem(placement: .navigationBarTrailing, content: {
-                Button(action: {
-                    withAnimation(.easeIn(duration: 0.8)) { isFilterPresented.toggle() }
-                }, label: {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button { withAnimation(.easeIn(duration: 0.5)) { isFilterPresented.toggle() } } label: {
                     Styles.Images.filter
                         .resizable()
                         .frame(width: 11, height: 13)
-                })
-            })
-        })
+                }
+            }
+        }
         .foregroundColor(Styles.Colors.darkBlue)
     }
 }

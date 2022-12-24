@@ -5,40 +5,30 @@ import SwiftUI
 
 extension StoreView {
     @ViewBuilder var bottomBarView: some View {
-        ZStack(content: {
-            Rectangle()
-                .cornerRadius(30, corners: [.topLeft, .topRight])
-                .foregroundColor(Styles.Colors.darkBlue)
-                .edgesIgnoringSafeArea([.bottom])
-                .frame(width: UIScreen.main.bounds.width, height: 72)
-                .shadow(color: Styles.Colors.shadow, radius: 20)
+        ZStack {
+            RectangleView(color: Styles.Colors.darkBlue)
 
-            HStack(content: {
+            HStack {
                 Text("• Explorer")
                 Spacer()
 
-                Button(action: {
-                    viewModel.routeToDetails()
-                }, label: {
+                Button { viewModel.routeToDetails() } label: {
                     Styles.Images.bag
-                })
+                }
                 Spacer()
 
-                Button(action: {
-                    viewModel.routeToBasket()
-                }, label: {
+                Button { viewModel.routeToBasket() } label: {
                     Styles.Images.heart
-                })
+                }
                 Spacer()
 
-                Button(action: {
-                }, label: {
+                Button {} label: {
                     Styles.Images.person
-                })
-            })
+                }
+            }
             .font(Font.custom(Styles.Fonts.bold, size: 16))
             .foregroundColor(.white)
             .padding(.horizontal, UIScreen.main.bounds.width / 8)
-        })
+        }
     }
 }

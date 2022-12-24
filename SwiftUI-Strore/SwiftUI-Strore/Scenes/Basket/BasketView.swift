@@ -12,67 +12,53 @@ struct BasketView<ViewModel: BasketViewModelProtocol & BasketFlowStateProtocol>:
     }
 
     @ViewBuilder private func content() -> some View {
-        VStack(content: {
-            HStack(content: {
+        VStack {
+            HStack {
                 Text("My Cart")
                     .foregroundColor(Styles.Colors.darkBlue)
                     .font(Font.custom(Styles.Fonts.bold, size: 35))
                     .padding()
                 Spacer()
-            })
+            }
             Spacer()
 
-            ZStack(alignment: .bottom, content: {
-                Rectangle()
-                    .cornerRadius(30, corners: [.topLeft, .topRight])
-                    .foregroundColor(Styles.Colors.darkBlue)
-                    .edgesIgnoringSafeArea([.bottom])
-                    .shadow(color: Styles.Colors.shadow, radius: 20)
+            ZStack(alignment: .bottom) {
+                RectangleView(color: Styles.Colors.darkBlue)
 
-                VStack(spacing: 24, content: {
+                VStack(spacing: 24) {
                     cartView
-
-                    Rectangle()
-                        .fill(Styles.Colors.white).opacity(0.3)
-                        .frame(height: 1)
-
+                    Rectangle() .modifier(Divider())
                     summaryView
-
-                    Rectangle()
-                        .fill(Styles.Colors.white).opacity(0.3)
-                        .frame(height: 1)
-
-                    checkoutButtonView
-                })
+                    Rectangle().modifier(Divider())
+                    ButtonView(text: "Checkout", action: {})
+                }
                 .padding(EdgeInsets(top: 30, leading: 30, bottom: 10, trailing: 30))
-            })
+            }
             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 1.5)
-        })
+        }
         .background(Styles.Colors.background)
         .foregroundColor(Styles.Colors.white)
         .navigationBarBackButtonHidden(true)
 
         .toolbar(content: {
-            ToolbarItem(placement: .navigationBarLeading, content: {
-                Button(action: {
-                    dismiss()
-                }, label: {
-                    Styles.Images.navigationBack
-                        .resizable()
-                        .frame(width: 37, height: 37)
-                })
-            })
+            ToolbarItem(placement: .navigationBarLeading) {
+                RectangleButtonView(
+                    image: Styles.Images.chevronLeft,
+                    color: Styles.Colors.darkBlue,
+                    action: { dismiss() }
+                )
+            }
 
-            ToolbarItem(content: {
+            ToolbarItem {
                 Text("Add Address")
                     .font(Font.custom(Styles.Fonts.medium, size: 18))
-            })
+            }
 
-            ToolbarItem(content: {
+            ToolbarItem {
                 Styles.Images.navigationAddress
                     .resizable()
                     .frame(width: 37, height: 37)
-            })
+            }
         })
     }
 }

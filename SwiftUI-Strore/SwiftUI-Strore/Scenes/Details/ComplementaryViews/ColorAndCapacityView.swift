@@ -8,17 +8,17 @@ extension DetailsView {
         let ssd = viewModel.response.capacity ?? []
         let colors = viewModel.response.color ?? []
 
-        VStack(alignment: .leading, content: {
-            HStack(content: {
+        VStack(alignment: .leading) {
+            HStack {
                 Text("Select color and capacity")
                     .font(Font.custom(Styles.Fonts.medium, size: 16))
                 Spacer()
-            })
+            }
 
-            HStack(content: {
-                HStack(content: {
+            HStack {
+                HStack {
                     ForEach(colors.indices, id: \.self) { index in
-                        ZStack(content: {
+                        ZStack {
                             Circle()
                                 .frame(width: 40, height: 40)
                                 .foregroundColor(Color(uiColor: .init(hexString: colors[index]) ?? Styles.Colors.error))
@@ -27,14 +27,14 @@ extension DetailsView {
                                     .font(Font.custom(Styles.Fonts.bold, size: 18))
                                     .foregroundColor(Styles.Colors.checkmark)
                             }
-                        })
+                        }
                         .onTapGesture { colorIndex = index }
                         .animation(.easeInOut, value: colorIndex)
                     }
-                })
+                }
                 Spacer()
 
-                HStack(content: {
+                HStack {
                     ForEach(ssd.indices, id: \.self) { index in
                         Text(ssd[index] + " GB")
                             .font(Font.custom(Styles.Fonts.bold, size: 13))
@@ -45,8 +45,8 @@ extension DetailsView {
                             .onTapGesture { ssdIndex = index }
                             .animation(.easeInOut, value: ssdIndex)
                     }
-                })
-            })
-        })
+                }
+            }
+        }
     }
 }

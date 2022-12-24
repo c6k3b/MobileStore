@@ -5,18 +5,16 @@ import SwiftUI
 
 extension StoreView {
     @ViewBuilder var categoryView: some View {
-        Section(content: {
-            ScrollView(.horizontal, showsIndicators: false, content: {
-                HStack(spacing: 24, content: {
+        Section {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 24) {
                     ForEach(categories.indices, id: \.self) { index in
-                        VStack(content: {
+                        VStack {
                             ZStack(content: {
                                 Circle()
                                     .frame(width: 71, height: 71)
                                     .foregroundColor(
-                                        index == categoryIndex
-                                        ? Styles.Colors.orange
-                                        : Styles.Colors.white
+                                        index == categoryIndex ? Styles.Colors.orange : Styles.Colors.white
                                     )
                                     .shadow(color: Styles.Colors.shadow, radius: 20)
                                 Image(categories[index])
@@ -33,25 +31,15 @@ extension StoreView {
                             Text(categories[index])
                                 .font(Font.custom(Styles.Fonts.medium, size: 12))
                                 .foregroundColor(index == categoryIndex ? Styles.Colors.orange : Styles.Colors.darkBlue)
-                        })
+                        }
                         .onTapGesture { categoryIndex = index }
                         .animation(.easeInOut, value: categoryIndex)
                     }
-                })
-            })
-        }, header: {
-            HStack(content: {
-                Text("Select Category")
-                    .font(Font.custom(Styles.Fonts.bold, size: 25))
-                Spacer()
-                Button(action: {
-                }, label: {
-                    Text("view all")
-                        .font(Font.custom(Styles.Fonts.regular, size: 15))
-                        .foregroundColor(Styles.Colors.orange)
-                })
-            })
-        })
+                }
+            }
+        } header: {
+            SectionHeaderView(label: "Select Category", sublabel: "view all")
+        }
         .foregroundColor(Styles.Colors.darkBlue)
     }
 }

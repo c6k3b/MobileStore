@@ -21,9 +21,7 @@ enum Styles {
     }
 
     enum Images {
-        static let basket = Image("BasketButton")
         static let bin = Image("Bin")
-        static let navigationBack = Image("BackButton")
         static let navigationAddress = Image("AddressButton")
         static let filter = Image("Filter")
         static let pin = Image("Pin")
@@ -38,5 +36,6 @@ enum Styles {
         static let xmark = Image(systemName: "xmark")
         static let magnifyingGlass = Image(systemName: "magnifyingglass")
         static let chevronDown = Image(systemName: "chevron.down")
+        static let chevronLeft = Image(systemName: "chevron.left")
     }
 }
