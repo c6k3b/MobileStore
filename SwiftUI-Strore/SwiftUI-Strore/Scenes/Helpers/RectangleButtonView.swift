@@ -23,7 +23,7 @@ struct RectangleButtonView: View {
 
                 image
                     .font(Font.custom(Styles.Fonts.bold, size: 14))
-                    .foregroundColor(Styles.Colors.white)
+                    .foregroundColor(Styles.Colors.background).opacity(0.8)
             }
         }
     }

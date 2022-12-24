@@ -27,7 +27,7 @@ extension StoreView {
                 }
             }
             .font(Font.custom(Styles.Fonts.bold, size: 16))
-            .foregroundColor(.white)
+            .foregroundColor(Styles.Colors.background).opacity(0.8)
             .padding(.horizontal, UIScreen.main.bounds.width / 8)
         }
     }
