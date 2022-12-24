@@ -27,6 +27,7 @@ struct StoreView<ViewModel: StoreViewModelProtocol & StoreFlowStateProtocol>: Vi
                     bestSellerView
                 }
                 .padding(.horizontal)
+                .padding(.bottom, 72)
             }
             .background(Styles.Colors.background)
             .foregroundColor(Styles.Colors.darkBlue)
